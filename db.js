@@ -1,10 +1,15 @@
-const mongoose = require("mongoose")
+/** @format */
 
-const generateData = require("./createEmployeeScript")
+const mongoose = require('mongoose');
+
+const generateData = require('./createEmployeeScript');
 
 module.exports = db = () => {
-    mongoose.connect(process.env.MONGOURL, { useUnifiedTopology: true } ).then(() =>{
-        console.log("DB connected")
-        generateData()
-    }).catch(err => console.log("DB connection error:" + err ))
-}
+  mongoose
+    .connect(process.env.MONGO_URL, { useUnifiedTopology: true })
+    .then(() => {
+      console.log('DB connected');
+      generateData();
+    })
+    .catch((err) => console.log('DB connection error:' + err));
+};
