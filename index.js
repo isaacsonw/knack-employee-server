@@ -11,11 +11,11 @@ const app = express();
 
 db();
 
-// const allowedOrigin = ['https://knack-employees.herokuapp.com/'];
+const allowedOrigin = ['http://localhost:3000'];
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors('*'));
+app.use(cors(allowedOrigin));
 
 app.use('/api/v1', routes);
 
